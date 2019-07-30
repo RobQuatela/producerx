@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Titlebar from './components/titlebar';
+import { makeStyles, Container } from '@material-ui/core';
+import ProduceList from './components/produce-list';
+import Receipt from './components/receipt';
 
-function App() {
+const useStyles = makeStyles({
+  root: {
+    display: 'grid',
+    gridTemplateColumns: '70% auto',
+  },
+});
+
+const App = () => {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Titlebar />
+      <Container className={classes.root}>
+        <ProduceList />
+        <Receipt />
+      </Container>
     </div>
   );
 }
